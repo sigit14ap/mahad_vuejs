@@ -51,20 +51,19 @@
         class="hidden-sm-and-down"
       ></v-text-field>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>apps</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>notifications</v-icon>
-      </v-btn>
-      <v-btn icon large>
-        <v-avatar size="32px" tile>
-          <img
-            src="https://vuetifyjs.com/static/doc-images/logo.svg"
-            alt="Vuetify"
-          >
-        </v-avatar>
-      </v-btn>
+          <v-menu bottom left>
+            <v-btn slot="activator" icon dark>
+              <v-icon>more_vert</v-icon>
+            </v-btn>
+            <v-list>
+              <v-list-tile v-for="(menu, i) in menus" :key="i">
+                <v-btn color="primary" dark>Accept
+                  <v-icon dark right>check_circle</v-icon>
+                </v-btn>
+                <v-list-tile-title v-if="menu.title === 'Logout'" v-on:submit.prevent = "Logout">{{ menu.title }}</v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-menu>
     </v-toolbar>
     <main>
         <v-content>
@@ -80,7 +79,16 @@
   export default {
     data: () => ({
       drawer: null,
+      menus: [
+        {title: 'Logout' },
+      ],
     }),
-    props: ['title', 'user_name', 'items'],
+    props: ['title', 'user_name', 'items','logout'],
+    methods: {
+      Logout: function() {
+        let uri = this.logout;
+        Axios.post(uri, this.post)
+      }
+    },
   }
 </script>

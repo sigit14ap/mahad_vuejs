@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vue-headful title="List"/>
     <v-dialog v-model="dialog" max-width="500px">
       <v-btn slot="activator" color="primary" dark class="mb-2">New Item</v-btn>
       <v-card>

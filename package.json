@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.5.16"
     },
     "dependencies": {
+        "vue-headful": "^2.0.1",
         "vuetify": "^1.0.18"
     }
 }

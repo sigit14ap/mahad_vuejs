@@ -10,11 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'home'], function() {
+    Route::get('/', function () {
+        return redirect()->to('/home/list');
+    });
+    Route::get('/{vue_capture?}', function () {
+        return view('home');
+    })->where('vue_capture', '[\/\w\.-]*');
 });
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+

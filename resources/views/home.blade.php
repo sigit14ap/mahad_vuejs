@@ -5,14 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>{{ config('app.name', 'Laravel') }}</title>
-<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+        <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
         <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
 </head>
     <body>
         
         <div id="app">
-            <home title="{{ config('app.name', 'Laravel') }}" user_name="tesst" :items="routes">
+            <home user_name="{{Auth::user()->name}}" :items="routes" logout={{route('logout')}}>
                 <router-view></router-view>
             </home>
         </div>

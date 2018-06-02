@@ -18,6 +18,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('photo_path')->default('users.png');
+            $table->string('telepon');
+            $table->enum('role', ['pusat', 'pdma', 'lembaga']);
+            $table->integer('lembaga_id');
+            $table->integer('created_by');
+            $table->integer('updated_by');
             $table->rememberToken();
             $table->timestamps();
         });

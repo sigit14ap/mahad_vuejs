@@ -1087,12 +1087,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuetify__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuetify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vuetify__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_home_List_vue__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_home_List_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_home_List_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_home_Awesome2_vue__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_home_Awesome2_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_home_Awesome2_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_home_Awesome3_vue__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_home_Awesome3_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_home_Awesome3_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_headful__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_headful___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_headful__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_home_List_vue__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_home_List_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_home_List_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_home_Awesome2_vue__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_home_Awesome2_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_home_Awesome2_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_home_Awesome3_vue__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_home_Awesome3_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_home_Awesome3_vue__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -1111,14 +1113,17 @@ window.Vue = __webpack_require__(35);
 
 
 
+
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vuetify___default.a);
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
-Vue.component('home', __webpack_require__(49));
+Vue.component('home', __webpack_require__(51));
+Vue.component('vue-headful', __WEBPACK_IMPORTED_MODULE_2_vue_headful___default.a);
 
-var routes = [{ text: 'List', icon: 'home', path: '/list', component: __WEBPACK_IMPORTED_MODULE_2__components_home_List_vue___default.a }, { text: 'Component 2', icon: 'grade', path: '/component_2', component: __WEBPACK_IMPORTED_MODULE_3__components_home_Awesome2_vue___default.a }, { text: 'Component 3', icon: 'face', path: '/component_3', component: __WEBPACK_IMPORTED_MODULE_4__components_home_Awesome3_vue___default.a }];
+var routes = [{ text: 'List', icon: 'home', path: '/home/list', component: __WEBPACK_IMPORTED_MODULE_3__components_home_List_vue___default.a }, { text: 'Component 2', icon: 'grade', path: '/home/component_2', component: __WEBPACK_IMPORTED_MODULE_4__components_home_Awesome2_vue___default.a }, { text: 'Component 3', icon: 'face', path: '/home/component_3', component: __WEBPACK_IMPORTED_MODULE_5__components_home_Awesome3_vue___default.a }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+    mode: 'history',
     routes: routes,
     linkActiveClass: 'link__tile--active'
 });
@@ -1132,7 +1137,8 @@ var app = new Vue({
     el: '#app',
     data: function data() {
         return {
-            routes: routes
+            routes: routes,
+            title: 'This will be the title'
         };
     },
 
@@ -53281,12 +53287,192 @@ if (inBrowser && window.Vue) {
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _headful = __webpack_require__(41);
+
+var _headful2 = _interopRequireDefault(_headful);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    name: 'vue-headful',
+    props: Object.keys(_headful2.default.props),
+    watch: {
+        '$props': {
+            handler: function handler(props) {
+                return (0, _headful2.default)(getPassedProps(props));
+            },
+            deep: true,
+            immediate: true
+        }
+    },
+    render: function render() {}
+};
+
+
+function getPassedProps(props) {
+    return Object.keys(props).reduce(function (passedProps, propKey) {
+        if (props[propKey] !== undefined) {
+            passedProps[propKey] = props[propKey];
+        }
+        return passedProps;
+    }, {});
+}
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+exports.default = headful;
+
+
+var conf = {
+    debug: false
+};
+
+var propertySetters = {
+    html: function html(obj) {
+        obj && Object.keys(obj).forEach(function (selector) {
+            return setRootElementAttributes(selector, obj[selector]);
+        });
+    },
+    head: function head(obj) {
+        obj && Object.keys(obj).forEach(function (selector) {
+            return setHeadElementAttributes(selector, obj[selector]);
+        });
+    },
+    title: function title(val) {
+        document.title = isRemoveValue(val) ? '' : val;
+        setMetaContent('itemprop="name"', val);
+        setMetaContent('property="og:title"', val);
+        setMetaContent('name="twitter:title"', val);
+    },
+    description: function description(val) {
+        setMetaContent('name="description"', val);
+        setMetaContent('itemprop="description"', val);
+        setMetaContent('property="og:description"', val);
+        setMetaContent('name="twitter:description"', val);
+    },
+    keywords: function keywords(val) {
+        setMetaContent('name="keywords"', Array.isArray(val) ? val.join(', ') : val);
+    },
+    image: function image(val) {
+        setMetaContent('itemprop="image"', val);
+        setMetaContent('property="og:image"', val);
+        setMetaContent('name="twitter:image"', val);
+    },
+    lang: function lang(val, props) {
+        setRootElementAttributes('html', { lang: val });
+        noProp(props, this.ogLocale) && setOgLocaleIfValid(val);
+    },
+    ogLocale: function ogLocale(val) {
+        setMetaContent('property="og:locale"', val);
+    },
+    url: function url(val) {
+        setHeadElementAttributes('link[rel="canonical"]', { href: val });
+        setMetaContent('property="og:url"', val);
+        setMetaContent('name="twitter:url"', val);
+    }
+};
+
+function headful(props, userConf) {
+    Object.assign(conf, userConf);
+    Object.keys(props).forEach(function (prop) {
+        if (!propertySetters.hasOwnProperty(prop)) {
+            throw new Error('Headful: Property \'' + prop + '\' is unknown.');
+        }
+        propertySetters[prop](props[prop], props);
+    });
+}
+
+headful.props = propertySetters;
+
+/**
+ * Tests whether the given `props` object contains a property with the name of `propNameOrFunction`.
+ */
+function noProp(props, propNameOrFunction) {
+    if (!props) {
+        throw new Error('Headful: You must pass all declared props when you use headful.props.x() calls.');
+    }
+    var propName = typeof propNameOrFunction === 'function' ? propNameOrFunction.name : propNameOrFunction;
+    return !props.hasOwnProperty(propName);
+}
+
+function setMetaContent(attr, val) {
+    setHeadElementAttributes('meta[' + attr + ']', { content: val });
+}
+
+function setRootElementAttributes(selector, attributes) {
+    setElementAttributes(getElement(document, selector), attributes);
+}
+
+function setHeadElementAttributes(selector, attributes) {
+    setElementAttributes(getElement(document.head, selector), attributes);
+}
+
+function setElementAttributes(element, attributes) {
+    if (element) {
+        Object.keys(attributes).forEach(function (attrName) {
+            if (isRemoveValue(attributes[attrName])) {
+                element.removeAttribute(attrName);
+            } else {
+                element.setAttribute(attrName, attributes[attrName]);
+            }
+        });
+    }
+}
+
+function getElement(parent, selector) {
+    var element = parent.querySelector(selector);
+    if (!element && conf.debug) {
+        console.error('Headful: Element \'' + selector + '\' was not found.');
+    }
+    return element;
+}
+
+function setOgLocaleIfValid(locale) {
+    if (isRemoveValue(locale)) {
+        propertySetters.ogLocale(locale);
+    } else if (locale.match(/^[a-z]{2}-[a-z]{2}$/i)) {
+        var _locale$split = locale.split('-'),
+            _locale$split2 = _slicedToArray(_locale$split, 2),
+            language = _locale$split2[0],
+            region = _locale$split2[1];
+
+        var ogLocale = language + '_' + region.toUpperCase();
+        propertySetters.ogLocale(ogLocale);
+    }
+}
+
+function isRemoveValue(val) {
+    return val === undefined || val === null;
+}
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(41)
+var __vue_script__ = __webpack_require__(43)
 /* template */
-var __vue_template__ = __webpack_require__(42)
+var __vue_template__ = __webpack_require__(44)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -53325,11 +53511,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -53534,7 +53721,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -53544,6 +53731,8 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("vue-headful", { attrs: { title: "List" } }),
+      _vm._v(" "),
       _c(
         "v-dialog",
         {
@@ -53838,15 +54027,15 @@ if (false) {
 }
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(44)
+var __vue_script__ = __webpack_require__(46)
 /* template */
-var __vue_template__ = __webpack_require__(45)
+var __vue_template__ = __webpack_require__(47)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -53885,11 +54074,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -53905,21 +54095,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
+  return _c(
+    "div",
+    [
+      _c("vue-headful", { attrs: { title: "Component 2" } }),
+      _vm._v(" "),
       _c("h3", [_vm._v("Component 2")]),
       _vm._v(" "),
       _c("h2", [_vm._v("This is the best component ever!")]),
@@ -53929,9 +54116,11 @@ var staticRenderFns = [
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ducimus totam atque nemo repellat, necessitatibus ab placeat veritatis iste inventore consequuntur ratione quo aliquid fuga aperiam odit possimus temporibus sed."
         )
       ])
-    ])
-  }
-]
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -53942,15 +54131,15 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(47)
+var __vue_script__ = __webpack_require__(49)
 /* template */
-var __vue_template__ = __webpack_require__(48)
+var __vue_template__ = __webpack_require__(50)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -53989,11 +54178,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -54009,21 +54199,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
+  return _c(
+    "div",
+    [
+      _c("vue-headful", { attrs: { title: "Component 3" } }),
+      _vm._v(" "),
       _c("h3", [_vm._v("Component 3")]),
       _vm._v(" "),
       _c("h2", [_vm._v("This is the best component ever!")]),
@@ -54033,9 +54220,11 @@ var staticRenderFns = [
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ducimus totam atque nemo repellat, necessitatibus ab placeat veritatis iste inventore consequuntur ratione quo aliquid fuga aperiam odit possimus temporibus sed."
         )
       ])
-    ])
-  }
-]
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -54046,15 +54235,15 @@ if (false) {
 }
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(50)
+var __vue_script__ = __webpack_require__(52)
 /* template */
-var __vue_template__ = __webpack_require__(51)
+var __vue_template__ = __webpack_require__(53)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -54093,12 +54282,11 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -54180,14 +54368,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      drawer: null
+      drawer: null,
+      menus: [{ title: 'Logout' }]
     };
   },
-  props: ['title', 'user_name', 'items']
+  props: ['title', 'user_name', 'items', 'logout'],
+  methods: {
+    Logout: function Logout() {
+      var uri = this.logout;
+      Axios.post(uri, this.post);
+    }
+  }
 });
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -54345,31 +54540,57 @@ var render = function() {
           _c("v-spacer"),
           _vm._v(" "),
           _c(
-            "v-btn",
-            { attrs: { icon: "" } },
-            [_c("v-icon", [_vm._v("apps")])],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            { attrs: { icon: "" } },
-            [_c("v-icon", [_vm._v("notifications")])],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            { attrs: { icon: "", large: "" } },
+            "v-menu",
+            { attrs: { bottom: "", left: "" } },
             [
-              _c("v-avatar", { attrs: { size: "32px", tile: "" } }, [
-                _c("img", {
-                  attrs: {
-                    src: "https://vuetifyjs.com/static/doc-images/logo.svg",
-                    alt: "Vuetify"
-                  }
+              _c(
+                "v-btn",
+                {
+                  attrs: { slot: "activator", icon: "", dark: "" },
+                  slot: "activator"
+                },
+                [_c("v-icon", [_vm._v("more_vert")])],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list",
+                _vm._l(_vm.menus, function(menu, i) {
+                  return _c(
+                    "v-list-tile",
+                    { key: i },
+                    [
+                      _c(
+                        "v-btn",
+                        { attrs: { color: "primary", dark: "" } },
+                        [
+                          _vm._v("Accept\n                "),
+                          _c("v-icon", { attrs: { dark: "", right: "" } }, [
+                            _vm._v("check_circle")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      menu.title === "Logout"
+                        ? _c(
+                            "v-list-tile-title",
+                            {
+                              on: {
+                                submit: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.Logout($event)
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(menu.title))]
+                          )
+                        : _vm._e()
+                    ],
+                    1
+                  )
                 })
-              ])
+              )
             ],
             1
           )
