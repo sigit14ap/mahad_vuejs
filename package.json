@@ -25,6 +25,8 @@
     },
     "dependencies": {
         "vue-headful": "^2.0.1",
-        "vuetify": "^1.0.18"
+        "vuetify": "^1.0.18",
+        "vue-laravel-validator": "^1.0.4",
+        "vue-resource": "^1.5.1"
     }
 }

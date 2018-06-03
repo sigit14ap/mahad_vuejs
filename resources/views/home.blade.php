@@ -12,8 +12,8 @@
     <body>
         
         <div id="app">
-            <home user_name="{{Auth::user()->name}}" :items="routes" logout={{route('logout')}}>
-                <router-view></router-view>
+            <home user_name="{{Auth::user()->name}}" profile_image="{{asset('assets/img/'.Auth::user()->photo_path)}}" :items="routes" logout={{route('logout')}}>
+                <router-view root_url="{{url('/')}}"></router-view>
             </home>
         </div>
             

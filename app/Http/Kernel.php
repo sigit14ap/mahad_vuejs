@@ -59,5 +59,10 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'IsPusat' => \App\Http\Middleware\PusatMiddleware::class,
+        'IsPDMA' => \App\Http\Middleware\PDMAMiddleware::class,
+        'IsLembaga' => \App\Http\Middleware\LembagaMiddleware::class,
+        'IsPusatLembaga' => \App\Http\Middleware\PusatLembagaMiddleware::class,
+        'IsLogin' => \App\Http\Middleware\LoginMiddleware::class,
     ];
 }

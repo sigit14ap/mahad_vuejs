@@ -10,13 +10,29 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['prefix' => 'home'], function() {
+
+// Route::get('/sessionStatus', function() {
+//     return ['user' => Auth::user() ? Auth::user()->load('name') : null];
+// });
+
+Route::group(['middleware' => 'IsLogin'], function () {
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+});
+
+Route::group(['prefix' => 'home', 'middleware' => 'IsPusatLembaga'], function () {
     Route::get('/', function () {
-        return redirect()->to('/home/list');
+        return redirect()->to('/home/pesantren');
     });
     Route::get('/{vue_capture?}', function () {
         return view('home');
     })->where('vue_capture', '[\/\w\.-]*');
+
+});
+
+//DATA
+Route::group([ 'middleware' => 'IsPusatLembaga'], function () {
+    //PESANTREN
+    Route::get('get-pesantren-index', 'Pusat\PesantrenController@index')->name('pesantren.index');
 });
 Auth::routes();
 

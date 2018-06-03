@@ -8,8 +8,9 @@
 </template>
 <script>
     export default {
+        props: ['root_url'],
         mounted() {
-            console.log('Component 2 mounted.')
+            console.log(this.root_url)
         }
     }
 </script>

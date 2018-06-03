@@ -9,24 +9,33 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import VueResource from 'vue-resource';
+import LaravelValidator from 'vue-laravel-validator';
 import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 import vueHeadful from 'vue-headful';
 
-import List from './components/home/List.vue';
-import Awesome2 from './components/home/Awesome2.vue';
-import Awesome3 from './components/home/Awesome3.vue';
+import pesantren_index from './components/pusat_lembaga/pesantren/index.vue';
+import pesantren_create from './components/pusat_lembaga/pesantren/create.vue';
+import pesantren_edit from './components/pusat_lembaga/pesantren/edit.vue';
+import pesantren_show from './components/pusat_lembaga/pesantren/show.vue';
+
+
+window.VueAxios=require('vue-axios').default;
+window.Axios=require('axios').default;
 
 Vue.use(Vuetify);
-Vue.use(VueRouter);
+Vue.use(VueRouter,VueAxios, axios);
+Vue.use(VueResource);
+Vue.use(LaravelValidator);
 
-Vue.component('home', require('./components/home/Index.vue'));
+Vue.component('home', require('./Layouts.vue'));
 Vue.component('vue-headful', vueHeadful);
 
 const routes = [
-    {text : 'List', icon: 'home', path : '/home/list', component : List},
-    {text : 'Component 2', icon: 'grade', path : '/home/component_2', component : Awesome2},
-    {text : 'Component 3', icon: 'face', path : '/home/component_3', component : Awesome3},
+    {text : 'Pesantren', icon: 'home', path : '/home/pesantren', component : pesantren_index, sidebar : true},
+    {text : 'Tambah Pesantren', icon: 'grade', path : '/home/pesantren/create', component : pesantren_create, sidebar : false},
+    {text : 'Ubah Data Pesantren', icon: 'face', path : '/home/pesantren/edit', component : pesantren_edit, sidebar : false},
 ];
 
 const router  = new VueRouter({
@@ -46,7 +55,6 @@ const app = new Vue({
     data () {
         return {
             routes : routes,
-            title: 'This will be the title',
         }
     },
     router,
