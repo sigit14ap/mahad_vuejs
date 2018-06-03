@@ -14,6 +14,9 @@
 // Route::get('/sessionStatus', function() {
 //     return ['user' => Auth::user() ? Auth::user()->load('name') : null];
 // });
+Route::get('/', function () {
+    return redirect()->to('/home/pesantren');
+});
 
 Route::group(['middleware' => 'IsLogin'], function () {
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');

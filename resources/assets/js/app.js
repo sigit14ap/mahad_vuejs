@@ -33,9 +33,9 @@ Vue.component('home', require('./Layouts.vue'));
 Vue.component('vue-headful', vueHeadful);
 
 const routes = [
-    {text : 'Pesantren', icon: 'home', path : '/home/pesantren', component : pesantren_index, sidebar : true},
-    {text : 'Tambah Pesantren', icon: 'grade', path : '/home/pesantren/create', component : pesantren_create, sidebar : false},
-    {text : 'Ubah Data Pesantren', icon: 'face', path : '/home/pesantren/edit', component : pesantren_edit, sidebar : false},
+    {name: 'pesantren_index', text : 'Pesantren', icon: 'home', path : '/home/pesantren', component : pesantren_index, sidebar : true},
+    {name: 'pesantren_create', text : 'Tambah Pesantren', icon: 'grade', path : '/home/pesantren/create', component : pesantren_create, sidebar : false},
+    {name: 'pesantren_edit', text : 'Ubah Data Pesantren', icon: 'face', path : '/home/pesantren/edit', component : pesantren_edit, sidebar : false},
 ];
 
 const router  = new VueRouter({

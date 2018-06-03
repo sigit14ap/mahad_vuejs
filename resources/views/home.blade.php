@@ -8,6 +8,7 @@
         <title></title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
         <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+        <link href="{{asset('assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 </head>
     <body>
         

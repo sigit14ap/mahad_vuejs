@@ -1,5 +1,16 @@
 <template>
   <div>
+    <router-link v-bind:to="{name: 'pesantren_create'}">
+      <v-btn
+        color="primary"
+        class="white--text mb-3"
+        @click.native="loader = 'loading3'"
+      >
+        Tambah Pesantren
+        &nbsp;
+        <v-icon>fa fa-plus-square fa-lg</v-icon>
+      </v-btn>
+    </router-link>
     <vue-headful title="Pesantren"/>
   <v-card>
     <v-card-title>

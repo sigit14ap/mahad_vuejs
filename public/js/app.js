@@ -1098,13 +1098,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_router__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_headful__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_headful___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue_headful__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_pusat_lembaga_pesantren_index_vue__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_pusat_lembaga_pesantren_index_vue__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_pusat_lembaga_pesantren_index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_pusat_lembaga_pesantren_index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_pusat_lembaga_pesantren_create_vue__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_pusat_lembaga_pesantren_create_vue__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_pusat_lembaga_pesantren_create_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_pusat_lembaga_pesantren_create_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_pusat_lembaga_pesantren_edit_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_pusat_lembaga_pesantren_edit_vue__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_pusat_lembaga_pesantren_edit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_pusat_lembaga_pesantren_edit_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_pusat_lembaga_pesantren_show_vue__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_pusat_lembaga_pesantren_show_vue__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_pusat_lembaga_pesantren_show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_pusat_lembaga_pesantren_show_vue__);
 
 /**
@@ -1128,7 +1128,7 @@ window.Vue = __webpack_require__(35);
 
 
 
-window.VueAxios = __webpack_require__(54).default;
+window.VueAxios = __webpack_require__(51).default;
 window.Axios = __webpack_require__(4).default;
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_2_vuetify___default.a);
@@ -1136,10 +1136,10 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_3_vue_router__["a" /* default */], VueAxios, a
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_resource__["a" /* default */]);
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_laravel_validator___default.a);
 
-Vue.component('home', __webpack_require__(55));
+Vue.component('home', __webpack_require__(52));
 Vue.component('vue-headful', __WEBPACK_IMPORTED_MODULE_4_vue_headful___default.a);
 
-var routes = [{ text: 'Pesantren', icon: 'home', path: '/home/pesantren', component: __WEBPACK_IMPORTED_MODULE_5__components_pusat_lembaga_pesantren_index_vue___default.a, sidebar: true }, { text: 'Tambah Pesantren', icon: 'grade', path: '/home/pesantren/create', component: __WEBPACK_IMPORTED_MODULE_6__components_pusat_lembaga_pesantren_create_vue___default.a, sidebar: false }, { text: 'Ubah Data Pesantren', icon: 'face', path: '/home/pesantren/edit', component: __WEBPACK_IMPORTED_MODULE_7__components_pusat_lembaga_pesantren_edit_vue___default.a, sidebar: false }];
+var routes = [{ name: 'pesantren_index', text: 'Pesantren', icon: 'home', path: '/home/pesantren', component: __WEBPACK_IMPORTED_MODULE_5__components_pusat_lembaga_pesantren_index_vue___default.a, sidebar: true }, { name: 'pesantren_create', text: 'Tambah Pesantren', icon: 'grade', path: '/home/pesantren/create', component: __WEBPACK_IMPORTED_MODULE_6__components_pusat_lembaga_pesantren_create_vue___default.a, sidebar: false }, { name: 'pesantren_edit', text: 'Ubah Data Pesantren', icon: 'face', path: '/home/pesantren/edit', component: __WEBPACK_IMPORTED_MODULE_7__components_pusat_lembaga_pesantren_edit_vue___default.a, sidebar: false }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_3_vue_router__["a" /* default */]({
     mode: 'history',
@@ -55055,16 +55055,506 @@ function isRemoveValue(val) {
 }
 
 /***/ }),
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(46)
+/* template */
+var __vue_template__ = __webpack_require__(47)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\pusat_lembaga\\pesantren\\index.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5d904834", Component.options)
+  } else {
+    hotAPI.reload("data-v-5d904834", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['root_url'],
+  data: function data() {
+    return {
+      dialog: false,
+      totalPesantren: 0,
+      search: '',
+      loading: true,
+      pagination: {},
+      // rows: [],
+      // page : [],
+      // number : [],
+      headers: [
+      // { text: 'No.', value: 1, sortable : true},
+      { text: 'Pesantren', align: 'left', sortable: true, value: 'nama_pondok_pesantren' }, { text: 'Yayasan', value: 'nama_yayasan', sortable: true }, { text: 'Actions', value: 'name', align: 'center', sortable: false }],
+      pesantren: []
+    };
+  },
+
+  watch: {
+    pagination: {
+      handler: function handler() {
+        var _this = this;
+
+        this.getDataFromApi().then(function (data) {
+          _this.totalPesantren = data.total;
+        });
+        // this.rows = this.pagination.rowsPerPage
+        // this.page = this.pagination.page
+        // this.number = this.rows+1
+        //  console.log(this.rows);
+      },
+
+      deep: true
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    this.getDataFromApi().then(function (data) {
+      _this2.totalPesantren = data.total;
+    });
+  },
+
+  methods: {
+    getDataFromApi: function getDataFromApi() {
+      var _this3 = this;
+
+      this.loading = true;
+      return new Promise(function (resolve, reject) {
+        var _pagination = _this3.pagination,
+            sortBy = _pagination.sortBy,
+            descending = _pagination.descending,
+            page = _pagination.page,
+            rowsPerPage = _pagination.rowsPerPage;
+
+
+        var items = _this3.getData();
+        var total = items.length;
+
+        if (_this3.pagination.sortBy) {
+          items = items.sort(function (a, b) {
+            var sortA = a[sortBy];
+            var sortB = b[sortBy];
+
+            if (descending) {
+              if (sortA < sortB) return 1;
+              if (sortA > sortB) return -1;
+              return 0;
+            } else {
+              if (sortA < sortB) return -1;
+              if (sortA > sortB) return 1;
+              return 0;
+            }
+          });
+        }
+
+        if (rowsPerPage > 0) {
+          items = items.slice((page - 1) * rowsPerPage, page * rowsPerPage);
+        }
+
+        setTimeout(function () {
+          _this3.loading = false;
+          resolve({
+            items: items,
+            total: total
+          });
+        }, 1000);
+      });
+    },
+    getData: function getData() {
+      var _this4 = this;
+
+      var uri = this.root_url + '/get-pesantren-index';
+      var hasil = [];
+      Axios.get(uri).then(function (response) {
+        _this4.pesantren = response.data;
+        hasil['value'] = false;
+        hasil['nama_pondok_pesantren'] = response.data.nama_pondok_pesantren;
+        hasil['nama_yayasan'] = response.data.nama_yayasan;
+      });
+
+      return hasil;
+    }
+  }
+
+  // created: function() {
+  //     let uri = this.root_url+'/get-pesantren-index';
+  //     Axios.get(uri).then((response) => {
+  //         this.pesantren = response.data;
+  //     });
+  // },
+
+});
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "router-link",
+        { attrs: { to: { name: "pesantren_create" } } },
+        [
+          _c(
+            "v-btn",
+            {
+              staticClass: "white--text mb-3",
+              attrs: { color: "primary" },
+              nativeOn: {
+                click: function($event) {
+                  _vm.loader = "loading3"
+                }
+              }
+            },
+            [
+              _vm._v("\n      Tambah Pesantren\n       \n      "),
+              _c("v-icon", [_vm._v("fa fa-plus-square fa-lg")])
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("vue-headful", { attrs: { title: "Pesantren" } }),
+      _vm._v(" "),
+      _c(
+        "v-card",
+        [
+          _c(
+            "v-card-title",
+            [
+              _vm._v("\n    Pesantren\n    "),
+              _c("v-spacer"),
+              _vm._v(" "),
+              _c("v-text-field", {
+                attrs: {
+                  "append-icon": "search",
+                  label: "Search",
+                  "single-line": "",
+                  "hide-details": ""
+                },
+                model: {
+                  value: _vm.search,
+                  callback: function($$v) {
+                    _vm.search = $$v
+                  },
+                  expression: "search"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-data-table",
+            {
+              staticClass: "elevation-1",
+              attrs: {
+                headers: _vm.headers,
+                items: _vm.pesantren,
+                search: _vm.search,
+                pagination: _vm.pagination,
+                "total-items": _vm.totalPesantren,
+                loading: _vm.loading
+              },
+              on: {
+                "update:pagination": function($event) {
+                  _vm.pagination = $event
+                }
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "items",
+                  fn: function(props) {
+                    return [
+                      _c("td", [
+                        _vm._v(_vm._s(props.item.nama_pondok_pesantren))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "justify-center" }, [
+                        _vm._v(_vm._s(props.item.nama_yayasan))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        { staticClass: "justify-center layout px-0" },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              staticClass: "mx-0",
+                              attrs: { icon: "" },
+                              on: {
+                                click: function($event) {
+                                  _vm.editItem(props.item)
+                                }
+                              }
+                            },
+                            [
+                              _c("v-icon", { attrs: { color: "teal" } }, [
+                                _vm._v("edit")
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            {
+                              staticClass: "mx-0",
+                              attrs: { icon: "" },
+                              on: {
+                                click: function($event) {
+                                  _vm.deleteItem(props.item)
+                                }
+                              }
+                            },
+                            [
+                              _c("v-icon", { attrs: { color: "pink" } }, [
+                                _vm._v("delete")
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  }
+                }
+              ])
+            },
+            [
+              _c(
+                "v-alert",
+                {
+                  attrs: {
+                    slot: "no-results",
+                    value: true,
+                    color: "error",
+                    icon: "warning"
+                  },
+                  slot: "no-results"
+                },
+                [
+                  _vm._v(
+                    '\n      Your search for "' +
+                      _vm._s(_vm.search) +
+                      '" found no results.\n    '
+                  )
+                ]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5d904834", module.exports)
+  }
+}
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\pusat_lembaga\\pesantren\\create.vue"
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\pusat_lembaga\\pesantren\\edit.vue"
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\pusat_lembaga\\pesantren\\show.vue"
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55072,15 +55562,15 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):window.Vue&&window.axios&&Vue.use(o,window.axios)}();
 
 /***/ }),
-/* 55 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(56)
+var __vue_script__ = __webpack_require__(53)
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(54)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -55119,7 +55609,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 56 */
+/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55220,7 +55710,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 57 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -55443,469 +55933,6 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-6656feba", module.exports)
-  }
-}
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(62)
-/* template */
-var __vue_template__ = __webpack_require__(63)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\pusat_lembaga\\pesantren\\index.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5d904834", Component.options)
-  } else {
-    hotAPI.reload("data-v-5d904834", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = null
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\pusat_lembaga\\pesantren\\create.vue"
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = null
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\pusat_lembaga\\pesantren\\edit.vue"
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = null
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\pusat_lembaga\\pesantren\\show.vue"
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 62 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['root_url'],
-  data: function data() {
-    return {
-      dialog: false,
-      totalPesantren: 0,
-      search: '',
-      loading: true,
-      pagination: {},
-      // rows: [],
-      // page : [],
-      // number : [],
-      headers: [
-      // { text: 'No.', value: 1, sortable : true},
-      { text: 'Pesantren', align: 'left', sortable: true, value: 'nama_pondok_pesantren' }, { text: 'Yayasan', value: 'nama_yayasan', sortable: true }, { text: 'Actions', value: 'name', align: 'center', sortable: false }],
-      pesantren: []
-    };
-  },
-
-  watch: {
-    pagination: {
-      handler: function handler() {
-        var _this = this;
-
-        this.getDataFromApi().then(function (data) {
-          _this.totalPesantren = data.total;
-        });
-        // this.rows = this.pagination.rowsPerPage
-        // this.page = this.pagination.page
-        // this.number = this.rows+1
-        //  console.log(this.rows);
-      },
-
-      deep: true
-    }
-  },
-  mounted: function mounted() {
-    var _this2 = this;
-
-    this.getDataFromApi().then(function (data) {
-      _this2.totalPesantren = data.total;
-    });
-  },
-
-  methods: {
-    getDataFromApi: function getDataFromApi() {
-      var _this3 = this;
-
-      this.loading = true;
-      return new Promise(function (resolve, reject) {
-        var _pagination = _this3.pagination,
-            sortBy = _pagination.sortBy,
-            descending = _pagination.descending,
-            page = _pagination.page,
-            rowsPerPage = _pagination.rowsPerPage;
-
-
-        var items = _this3.getData();
-        var total = items.length;
-
-        if (_this3.pagination.sortBy) {
-          items = items.sort(function (a, b) {
-            var sortA = a[sortBy];
-            var sortB = b[sortBy];
-
-            if (descending) {
-              if (sortA < sortB) return 1;
-              if (sortA > sortB) return -1;
-              return 0;
-            } else {
-              if (sortA < sortB) return -1;
-              if (sortA > sortB) return 1;
-              return 0;
-            }
-          });
-        }
-
-        if (rowsPerPage > 0) {
-          items = items.slice((page - 1) * rowsPerPage, page * rowsPerPage);
-        }
-
-        setTimeout(function () {
-          _this3.loading = false;
-          resolve({
-            items: items,
-            total: total
-          });
-        }, 1000);
-      });
-    },
-    getData: function getData() {
-      var _this4 = this;
-
-      var uri = this.root_url + '/get-pesantren-index';
-      var hasil = [];
-      Axios.get(uri).then(function (response) {
-        _this4.pesantren = response.data;
-        hasil['value'] = false;
-        hasil['nama_pondok_pesantren'] = response.data.nama_pondok_pesantren;
-        hasil['nama_yayasan'] = response.data.nama_yayasan;
-      });
-
-      return hasil;
-    }
-  }
-
-  // created: function() {
-  //     let uri = this.root_url+'/get-pesantren-index';
-  //     Axios.get(uri).then((response) => {
-  //         this.pesantren = response.data;
-  //     });
-  // },
-
-});
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("vue-headful", { attrs: { title: "Pesantren" } }),
-      _vm._v(" "),
-      _c(
-        "v-card",
-        [
-          _c(
-            "v-card-title",
-            [
-              _vm._v("\n    Pesantren\n    "),
-              _c("v-spacer"),
-              _vm._v(" "),
-              _c("v-text-field", {
-                attrs: {
-                  "append-icon": "search",
-                  label: "Search",
-                  "single-line": "",
-                  "hide-details": ""
-                },
-                model: {
-                  value: _vm.search,
-                  callback: function($$v) {
-                    _vm.search = $$v
-                  },
-                  expression: "search"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-data-table",
-            {
-              staticClass: "elevation-1",
-              attrs: {
-                headers: _vm.headers,
-                items: _vm.pesantren,
-                search: _vm.search,
-                pagination: _vm.pagination,
-                "total-items": _vm.totalPesantren,
-                loading: _vm.loading
-              },
-              on: {
-                "update:pagination": function($event) {
-                  _vm.pagination = $event
-                }
-              },
-              scopedSlots: _vm._u([
-                {
-                  key: "items",
-                  fn: function(props) {
-                    return [
-                      _c("td", [
-                        _vm._v(_vm._s(props.item.nama_pondok_pesantren))
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "justify-center" }, [
-                        _vm._v(_vm._s(props.item.nama_yayasan))
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "justify-center layout px-0" },
-                        [
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "mx-0",
-                              attrs: { icon: "" },
-                              on: {
-                                click: function($event) {
-                                  _vm.editItem(props.item)
-                                }
-                              }
-                            },
-                            [
-                              _c("v-icon", { attrs: { color: "teal" } }, [
-                                _vm._v("edit")
-                              ])
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "mx-0",
-                              attrs: { icon: "" },
-                              on: {
-                                click: function($event) {
-                                  _vm.deleteItem(props.item)
-                                }
-                              }
-                            },
-                            [
-                              _c("v-icon", { attrs: { color: "pink" } }, [
-                                _vm._v("delete")
-                              ])
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  }
-                }
-              ])
-            },
-            [
-              _c(
-                "v-alert",
-                {
-                  attrs: {
-                    slot: "no-results",
-                    value: true,
-                    color: "error",
-                    icon: "warning"
-                  },
-                  slot: "no-results"
-                },
-                [
-                  _vm._v(
-                    '\n      Your search for "' +
-                      _vm._s(_vm.search) +
-                      '" found no results.\n    '
-                  )
-                ]
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5d904834", module.exports)
   }
 }
 
