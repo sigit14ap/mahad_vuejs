@@ -32,7 +32,8 @@ class PesantrenController extends Controller
      */
     public function create()
     {
-        //
+        $data = ref_takhasus::select('nama_takhasus','kode','id')->get();
+        return response()->json($data);
     }
 
     /**

@@ -55762,6 +55762,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -55773,30 +55817,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     nama_pesantren: { required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"] },
     nama_yayasan: { required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"] },
     email: { required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"], email: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["email"] },
-    select: { required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"] },
-    checkbox: { required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"] }
-  },
+    tahun_berdiri: { required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"] },
+    jumlah_santri_lk: { required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"] },
+    jumlah_santri_pr: { required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"] },
+    nama_pengasuh: { required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"] },
+    nama_ketuayayasan: { required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"] }
 
+  },
+  props: ['root_url'],
   data: function data() {
     return {
       nama_pesantren: '',
       nama_yayasan: '',
       email: '',
-      select: null,
+      tahun_berdiri: '',
+      jumlah_santri_lk: '',
+      jumlah_santri_pr: '',
+      nama_pengasuh: '',
+      nama_ketuayayasan: '',
       items: [],
-      search: null,
+      a1: null,
       takhasus: [],
       form: this.$form({
         'title': null, // or Vuex this.user.title eg.
         'body': null
       })
     };
-  },
-
-  watch: {
-    search: function search(val) {
-      val && this.takhasusSelections(val);
-    }
   },
 
   computed: {
@@ -55818,6 +55864,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       !this.$v.nama_yayasan.required && errors.push('Nama Yayasan Dibutuhkan.');
       return errors;
     },
+    tahun_berdiriErrors: function tahun_berdiriErrors() {
+      var errors = [];
+      if (!this.$v.tahun_berdiri.$dirty) return errors;
+      !this.$v.tahun_berdiri.required && errors.push('Tahun Berdiri Dibutuhkan.');
+      return errors;
+    },
+    jumlah_santri_lkErrors: function jumlah_santri_lkErrors() {
+      var errors = [];
+      if (!this.$v.jumlah_santri_lk.$dirty) return errors;
+      !this.$v.jumlah_santri_lk.required && errors.push('Jumlah Santri Laki-Laki Dibutuhkan.');
+      return errors;
+    },
+    jumlah_santri_prErrors: function jumlah_santri_prErrors() {
+      var errors = [];
+      if (!this.$v.jumlah_santri_pr.$dirty) return errors;
+      !this.$v.jumlah_santri_pr.required && errors.push('Jumlah Santri Perempuan Dibutuhkan.');
+      return errors;
+    },
+    nama_pengasuhErrors: function nama_pengasuhErrors() {
+      var errors = [];
+      if (!this.$v.nama_pengasuh.$dirty) return errors;
+      !this.$v.nama_pengasuh.required && errors.push('Nama Pengasuh Dibutuhkan.');
+      return errors;
+    },
+    nama_ketuayayasanErrors: function nama_ketuayayasanErrors() {
+      var errors = [];
+      if (!this.$v.nama_ketuayayasan.$dirty) return errors;
+      !this.$v.nama_ketuayayasan.required && errors.push('Nama Ketua Yayasan Dibutuhkan.');
+      return errors;
+    },
     emailErrors: function emailErrors() {
       var errors = [];
       if (!this.$v.email.$dirty) return errors;
@@ -55826,22 +55902,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return errors;
     }
   },
+  mounted: function mounted() {
+    this.getDataFromApi();
+  },
 
   methods: {
     submit: function submit() {
       this.$v.$touch();
     },
-    takhasusSelections: function takhasusSelections(v) {
+    getDataFromApi: function getDataFromApi() {
       var _this = this;
 
-      this.loading = true;
-      // Simulated ajax query
-      setTimeout(function () {
-        _this.items = _this.takhasus.filter(function (e) {
-          return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1;
-        });
-        _this.loading = false;
-      }, 500);
+      var uri = this.root_url + '/get-takhasus';
+      Axios.get(uri).then(function (response) {
+        _this.takhasus = response.data;
+      });
     }
   }
 });
@@ -57532,35 +57607,142 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-select", {
                         attrs: {
-                          loading: _vm.loading,
-                          items: _vm.items,
                           rules: [
                             function() {
-                              return (
-                                _vm.select.length > 0 ||
-                                "You must choose at least one"
-                              )
+                              return _vm.a1 || "Pilih salah satu."
                             }
                           ],
-                          "search-input": _vm.search,
+                          items: _vm.takhasus,
+                          "item-text": "nama_takhasus",
+                          "item-value": "id",
                           label: "Takhasus",
                           autocomplete: "",
-                          multiple: "",
-                          "cache-items": "",
-                          chips: "",
+                          required: ""
+                        },
+                        model: {
+                          value: _vm.a1,
+                          callback: function($$v) {
+                            _vm.a1 = $$v
+                          },
+                          expression: "a1"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          type: "number",
+                          "error-messages": _vm.tahun_berdiriErrors,
+                          label: "Tahun Berdiri",
                           required: ""
                         },
                         on: {
-                          "update:searchInput": function($event) {
-                            _vm.search = $event
+                          input: function($event) {
+                            _vm.$v.tahun_berdiri.$touch()
+                          },
+                          blur: function($event) {
+                            _vm.$v.tahun_berdiri.$touch()
                           }
                         },
                         model: {
-                          value: _vm.select,
+                          value: _vm.tahun_berdiri,
                           callback: function($$v) {
-                            _vm.select = $$v
+                            _vm.tahun_berdiri = _vm._n($$v)
                           },
-                          expression: "select"
+                          expression: "tahun_berdiri"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          type: "number",
+                          "error-messages": _vm.jumlah_santri_lkErrors,
+                          label: "Jumlah Santri Laki-Laki",
+                          required: ""
+                        },
+                        on: {
+                          input: function($event) {
+                            _vm.$v.jumlah_santri_lk.$touch()
+                          },
+                          blur: function($event) {
+                            _vm.$v.jumlah_santri_lk.$touch()
+                          }
+                        },
+                        model: {
+                          value: _vm.jumlah_santri_lk,
+                          callback: function($$v) {
+                            _vm.jumlah_santri_lk = _vm._n($$v)
+                          },
+                          expression: "jumlah_santri_lk"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          type: "number",
+                          "error-messages": _vm.jumlah_santri_prErrors,
+                          label: "Jumlah Santri Perempuan",
+                          required: ""
+                        },
+                        on: {
+                          input: function($event) {
+                            _vm.$v.jumlah_santri_pr.$touch()
+                          },
+                          blur: function($event) {
+                            _vm.$v.jumlah_santri_pr.$touch()
+                          }
+                        },
+                        model: {
+                          value: _vm.jumlah_santri_pr,
+                          callback: function($$v) {
+                            _vm.jumlah_santri_pr = _vm._n($$v)
+                          },
+                          expression: "jumlah_santri_pr"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          "error-messages": _vm.nama_pengasuhErrors,
+                          label: "Nama Pengasuh",
+                          required: ""
+                        },
+                        on: {
+                          input: function($event) {
+                            _vm.$v.nama_pengasuh.$touch()
+                          },
+                          blur: function($event) {
+                            _vm.$v.nama_pengasuh.$touch()
+                          }
+                        },
+                        model: {
+                          value: _vm.nama_pengasuh,
+                          callback: function($$v) {
+                            _vm.nama_pengasuh = $$v
+                          },
+                          expression: "nama_pengasuh"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          "error-messages": _vm.nama_ketuayayasanErrors,
+                          label: "Nama Ketua Yayasan",
+                          required: ""
+                        },
+                        on: {
+                          input: function($event) {
+                            _vm.$v.nama_ketuayayasan.$touch()
+                          },
+                          blur: function($event) {
+                            _vm.$v.nama_ketuayayasan.$touch()
+                          }
+                        },
+                        model: {
+                          value: _vm.nama_ketuayayasan,
+                          callback: function($$v) {
+                            _vm.nama_ketuayayasan = $$v
+                          },
+                          expression: "nama_ketuayayasan"
                         }
                       }),
                       _vm._v(" "),
@@ -57590,11 +57772,7 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("v-btn", { on: { click: _vm.submit } }, [
-                    _vm._v("submit")
-                  ]),
-                  _vm._v(" "),
-                  _c("v-btn", { on: { click: _vm.clear } }, [_vm._v("clear")])
+                  _c("v-btn", { on: { click: _vm.submit } }, [_vm._v("submit")])
                 ],
                 1
               )

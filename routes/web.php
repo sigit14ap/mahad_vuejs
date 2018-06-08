@@ -36,6 +36,9 @@ Route::group(['prefix' => 'home', 'middleware' => 'IsPusatLembaga'], function ()
 Route::group([ 'middleware' => 'IsPusatLembaga'], function () {
     //PESANTREN
     Route::get('get-pesantren-index', 'Pusat\PesantrenController@index')->name('pesantren.index');
+
+    //TAKHASUS
+    Route::get('get-takhasus', 'Pusat\PesantrenController@create')->name('pesantren.create');
 });
 Auth::routes();
 
